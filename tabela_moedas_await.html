@@ -13,16 +13,14 @@
     </div>
 
     <script>
-        //Assíncrono 
-        //Single Thread 
-        //IO Não Bloqueante 
-
         var btBuscarMoedas = document.getElementById("idBtBuscarMoedas")
 
         btBuscarMoedas.onclick = async function () {
             let moedas = await buscarMoedas(document.getElementById("idBtBuscarMoedas").value)
-            console.log(moedas)
+            let moedaOBJ = JSON.parse
+            console.log(moedaOBJ)
             let tabelaString =  JSON.stringify(moedas) //Convertendo um JSObject para JSON
+            console.log(tabelaString)
             alert(tabelaString)
         }
 

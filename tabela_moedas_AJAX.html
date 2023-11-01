@@ -8,43 +8,37 @@
 </head>
 <body>
     <div>
-        <input type="button" value="Buscar CEP" id="idBtBuscarCep">
-
+        <button value="Buscar Moedas" id="idBtBuscarMoedas">Moedas</button>
     </div>
-    <script>
-        var btBuscarCep = document.getElementById("idBtBuscarCep")
 
-        btBuscarCep.onclick = function () {
-            buscarCEP(document.getElementById("idCep").value)
+    <script>
+        var btBuscarMoedas = document.getElementById("idBtBuscarMoedas")
+
+        btBuscarMoedas.onclick = function () {
+            buscarMoedas(document.getElementById("idBtBuscarMoedas").value)
         }
 
-        function buscarCEP(cep){
+        function buscarMoedas(moedas){
             var xhr = new XMLHttpRequest()
 
-            xhr.open("GET", "https://viacep.com.br/ws/" + cep + "/json/" )
+            xhr.open("GET", "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/Moedas?$top=100&$format=json&$select=simbolo,nomeFormatado,tipoMoeda")
            
             xhr.addEventListener("load", function(){
                 let resposta = xhr.responseText
-                imprimirEndereco(resposta)
+                imprimirMoedas(resposta)
             })
             
             xhr.send()
         }
 
 
-        function imprimirEndereco(enderecoJSON){
-            console.log(enderecoJSON)
+        function imprimirMoedas(MoedasJSON){
 
-            let enderecoOBJ = JSON.parse(enderecoJSON) //Convertendo um JSON para JSObject
+            let MoedasOBJ = JSON.parse(MoedasJSON) //Convertendo um JSON para JSObject
 
-            console.log(enderecoOBJ);
-
-            console.log("Logradouro " + enderecoOBJ.logradouro);
-
-            let endJSON =  JSON.stringify(enderecoOBJ) //Convertendo um JSObject para JSON
-
-            console.log(endJSON);
-      
+            MoedasOBJ.value.forEach((item) => { //mostrando o nome para cada ítem
+                console.log(item.nomeFormatado + " - " + item.simbolo)
+            })
         }
 
 
