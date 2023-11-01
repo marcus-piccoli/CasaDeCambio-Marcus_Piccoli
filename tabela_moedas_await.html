@@ -9,8 +9,7 @@
 
 <body>
     <div>
-        <input type="text" id="idMoeda" placeholder="CEP...">
-        <input type="button" value="Buscar Moedas" id="idBtBuscarMoedas">
+        <button value="Buscar Moedas" id="idBtBuscarMoedas">Moedas</button>
     </div>
 
     <script>
@@ -21,10 +20,10 @@
         var btBuscarMoedas = document.getElementById("idBtBuscarMoedas")
 
         btBuscarMoedas.onclick = async function () {
-            let moedas = await buscarMoedas(document.getElementById("idMoeda").value)
+            let moedas = await buscarMoedas(document.getElementById("idBtBuscarMoedas").value)
             console.log(moedas)
-            let endJSON =  JSON.stringify(moedas) //Convertendo um JSObject para JSON
-            alert(endJSON)
+            let tabelaString =  JSON.stringify(moedas) //Convertendo um JSObject para JSON
+            alert(tabelaString)
         }
 
         async function buscarMoedas(moedas) {
