@@ -1,0 +1,67 @@
+body {
+    background-color:  white;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+  
+.heading {
+    font-family: 'Effra';
+    margin: 50px auto 20px;
+}
+
+.main {
+    width: 50vw;
+    margin: auto;
+    padding: 30px;
+    border-radius: 5px;
+    color: white;
+}
+  
+label {
+    font-size: 20px;
+}
+  
+.btn {
+    width: 200px;
+}
+  
+#finalAmount {
+    background-color: rgb(240,240,250);
+    width: 60%;
+    border-radius: 20px;
+    font-family: 'Effra';
+    display: none;
+    margin: 50px auto;
+}
+  
+#finalAmount h2 {
+    font-size: 60px;
+}
+  
+.finalValue {
+    font-family: 'Amiri', serif;
+}
+
+/*Tentativa de design para outras mídias, não testei*/
+@media (max-width: 768px) {
+    hr {
+        width: 60%;
+    }
+    .main {
+        width: 100%;
+    }
+}
+  
+@media (max-width: 400px) {
+    .heading {
+        font-size: 60px;
+    }
+    hr {
+        width: 75%;
+    }
+    #finalAmount h2, .finalValue {
+        font-size: 40px;
+    }
+}
